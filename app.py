@@ -37,7 +37,6 @@ if f'Attendance-{datetoday}.csv' not in os.listdir('Attendance'):
         f.write('Name,Roll,Time')
 
 
-#### get a number of total registered users
 def totalreg():
     return len(os.listdir('static/faces'))
 
@@ -51,13 +50,11 @@ def extract_faces(img):
     else:
         return []
 
-#### Identify face using ML model
 def identify_face(facearray):
     model = joblib.load('static/face_recognition_model.pkl')
     return model.predict(facearray)
 
 
-#### A function which trains the model on all the faces available in faces folder
 def train_model():
     faces = []
     labels = []
